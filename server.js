@@ -24,31 +24,20 @@ app.get("*", (req, res) =>
 );
 
 app.post("/api/notes", (req, res) => {
-  const { title, text } = req.body;
-  if (req.body) {
-    const newTask = {
-      title,
-      text,
-      id: id(),
-    };
-    readAndAppend(newTask, "./db/notes.json");
-    res.json("Note added");
-  } else {
-    res.json("There's been an error creating your note");
-  }
-
-  // const list = JSON.parse(fs.readFileSync("./db/notes.json", "utf8"));
-
+  const postedNote = req.body;
+  const list = JSON.parse(fs.readFileSync("./db/notes.json", "utf8"));
   
-  // saveNotes();
+  
+  list.push(postedNote);
+  saveNotes();
 });
 
-// function saveNotes() {
-//   fs.writeFile("./db/notes.json", JSON.stringify(notes, "\t"), (err) =>
-//     err ? console.log(err) : console.info("Successfully made changes")
-//   );
-//   return true;
-// }
+function saveNotes() {
+  fs.writeFile("./db/notes.json", JSON.stringify(notes, "\t"), (err) =>
+    err ? console.log(err) : console.info("Successfully made changes")
+  );
+  return true;
+}
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
