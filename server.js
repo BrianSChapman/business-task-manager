@@ -19,22 +19,36 @@ app.get("/api/notes", (req, res) => {
   res.json(notes);
 });
 
-app.post("/api/notes", (req, res) => {
-  const postedNote = req.body;
-  notes.push(postedNote);
-  saveNotes();
-});
-
 app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/index.html"))
 );
 
-function saveNotes() {
-  fs.writeFile("./db/notes.json", JSON.stringify(notes, "\t"), (err) =>
-    err ? console.log(err) : console.info("Successfully made changes")
-  );
-  return true;
-}
+app.post("/api/notes", (req, res) => {
+  const { title, text } = req.body;
+  if (req.body) {
+    const newTask = {
+      title,
+      text,
+      id: id(),
+    };
+    readAndAppend(newTask, "./db/notes.json");
+    res.json("Note added");
+  } else {
+    res.json("There's been an error creating your note");
+  }
+
+  // const list = JSON.parse(fs.readFileSync("./db/notes.json", "utf8"));
+
+  
+  // saveNotes();
+});
+
+// function saveNotes() {
+//   fs.writeFile("./db/notes.json", JSON.stringify(notes, "\t"), (err) =>
+//     err ? console.log(err) : console.info("Successfully made changes")
+//   );
+//   return true;
+// }
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
