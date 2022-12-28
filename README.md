@@ -11,5 +11,5 @@ There is no installation needed. Simply [click here](https://ancient-earth-22514
 ## Usage
 
 Upon load (using the link above), you simply need to click on the "Get Started" button to be taken to the form fields. Here is a photo of the landing page for reference:
-    
-![Note Taker Landing Page](/public/assets/Screenshot.png)
+
+![Note Taker Landing Page](Screenshot.png)
