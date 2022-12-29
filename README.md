@@ -6,7 +6,7 @@ Transitioning toward back end programming and the logical step would be to dip o
 
 ## Installation
 
-There is no installation needed. Simply [click here](https://ancient-earth-22514.herokuapp.com/) to see the work in progress. 
+There is no installation needed. Simply [click here](https://ancient-earth-22514.herokuapp.com/) to use the application. 
 
 ## Usage
 
