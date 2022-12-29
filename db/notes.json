@@ -1,18 +1,1 @@
-[
-  {
-    "title": "Commenting",
-    "text": "Be sure to leave clear comments for your teammates to pick up where you left off.",
-    "id": 1
-  },
-  {
-    "title": "Writing Routes",
-    "text": "Be sure you path them correctly to avoid hitting 404s",
-    "id": 2
-  },
-  {
-    "title": "Semantic HTML",
-    "text": "We should try our best to have our elements mean something.",
-    "id": 3
-  },
-  { "title": "Test", "text": "Test", "id": 4 }
-]
+[{"title":"Commenting","text":"Be sure to leave clear comments for your teammates to pick up where you left off.","id":1},{"title":"Writing Routes","text":"Be sure you path them correctly to avoid hitting 404s","id":2},{"title":"Semantic HTML","text":"We should try our best to have our elements mean something.","id":3},{"title":".env files","text":"Save yourself the doxing and threw your API keys and passwords in here.","id":4}]

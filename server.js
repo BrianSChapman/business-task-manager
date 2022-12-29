@@ -44,11 +44,20 @@ app.post("/api/notes", (req, res) => {
   res.status(201).json('Successfully added note.');
 });
 
+app.delete("/api/notes/:id", (req, res) => {
+  fs.readFile('./db/notes.json', (req, res) => {
+  const id = (req.params.id);
+  notes.splice(id, 1);
+
+   fs.writeFile("./db/notes.json", JSON.stringify(notes, "\t"), (err) =>
+  err ? console.log(err) : console.log("Successfully made changes")
+);
+res.status(201).json('Successfully added note.');
+});
+});
+
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
 );
 
-app.delete("/api/notes/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  
-})
+
